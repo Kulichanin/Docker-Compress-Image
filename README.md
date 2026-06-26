@@ -16,14 +16,15 @@ chmod u+x inflate.sh
 docker build -t app:bad -f Dockerfile.bad .
 ```
 
-```bash
-docker images | grep go-app
-```
+## Проводим анализ проблемных слоев
 
 ```bash
 docker history go-app:bad
 ```
 
+Удобная утилита
+
 ```bash
+alias dive="docker run -ti --rm  -v /var/run/docker.sock:/var/run/docker.sock docker.io/wagoodman/dive"
 dive go-app:bad
 ```

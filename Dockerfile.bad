@@ -1,19 +1,15 @@
 FROM ubuntu:latest
 
-# Раздельные RUN команды, которые плодят слои и оставляют кэш apt
 RUN apt-get update
 RUN apt-get install -y golang git build-essential
 
 WORKDIR /app
 
-# Копируем всё подряд, включая тяжелую папку .git и локальный мусор
 COPY . .
 
-# Скачиваем зависимости и компилируем прямо внутри продакшн-образа
 RUN go mod download
 RUN go build -o app .
 
 EXPOSE 8080
 
-# Запуск от имени root-пользователя по умолчанию
 CMD ["./myapp"]

@@ -38,3 +38,8 @@ go.work.sum
 *.log
 app_*
 *.db
+
+# webinar
+
+.dockerignore
+Dockerfile
