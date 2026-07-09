@@ -39,4 +39,5 @@ go.work.sum
 app_*
 *.db
 
-# webinar
+inflate.sh
+assets
